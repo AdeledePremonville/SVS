@@ -10,14 +10,14 @@ public class GameSpawner : MonoBehaviour
     {
         SpawnPlayer(
             GameManager.Instance.player1Character,
-            GameManager.Instance.player1Device,
+            GameManager.Instance.Player1Device,
             spawnPoints[0],
             0
         );
 
         SpawnPlayer(
             GameManager.Instance.player2Character,
-            GameManager.Instance.player2Device,
+            GameManager.Instance.Player2Device,
             spawnPoints[1],
             1
         );
