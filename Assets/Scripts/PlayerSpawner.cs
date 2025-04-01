@@ -9,15 +9,15 @@ public class GameSpawner : MonoBehaviour
     void Start()
     {
         SpawnPlayer(
-            GameManager.Instance.player1Character,
-            GameManager.Instance.Player1Device,
+            Managers.GameManager.Instance.player1Character,
+            Managers.GameManager.Instance.Player1Device,
             spawnPoints[0],
             0
         );
 
         SpawnPlayer(
-            GameManager.Instance.player2Character,
-            GameManager.Instance.Player2Device,
+            Managers.GameManager.Instance.player2Character,
+            Managers.GameManager.Instance.Player2Device,
             spawnPoints[1],
             1
         );

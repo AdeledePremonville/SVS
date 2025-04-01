@@ -127,6 +127,54 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Menu",
+            "id": "efabe554-9170-47e0-94bb-d43ee37cc2aa",
+            "actions": [
+                {
+                    "name": "MoveLeft",
+                    "type": "Button",
+                    "id": "c45d7b04-7bb7-44db-926a-ceeb06ee2c7b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MoveRight",
+                    "type": "Button",
+                    "id": "25275ceb-0d8d-491f-8efc-e88c0dcfcb6f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "31ef410f-c4a4-4b42-9b08-94916702194c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4c0b1c7d-1442-4ce9-b871-a41691b09931",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []
