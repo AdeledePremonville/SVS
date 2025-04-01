@@ -8,13 +8,13 @@ namespace UI
     {
         public void OnVersusModeClick()
         {
-            GameManager.Instance.gameMode = "Versus";
+            Managers.GameManager.Instance.gameMode = "Versus";
             SceneManager.LoadScene("CharacterSelectScene");
         }
 
         public void OnStoryModeClick()
         {
-            GameManager.Instance.gameMode = "Story";
+            Managers.GameManager.Instance.gameMode = "Story";
             // SceneManager.LoadScene("CharacterSelectScene");
         }
     }
