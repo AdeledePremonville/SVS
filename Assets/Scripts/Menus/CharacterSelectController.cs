@@ -151,16 +151,26 @@ namespace Menus
 
         private void OnMoveLeft()
         {
+            if ((_playerIndex == 0 && Managers.GameManager.Instance.player1Ready) ||
+                (_playerIndex == 1 && Managers.GameManager.Instance.player2Ready))
+                return;
             UpdateSelector(-1);
         }
 
         private void OnMoveRight()
         {
+            if ((_playerIndex == 0 && Managers.GameManager.Instance.player1Ready) ||
+                (_playerIndex == 1 && Managers.GameManager.Instance.player2Ready))
+                return;
             UpdateSelector(1);
         }
 
         private void OnReady()
         {
+            if ((_playerIndex == 0 && Managers.GameManager.Instance.player1Ready) ||
+                (_playerIndex == 1 && Managers.GameManager.Instance.player2Ready))
+                return;
+            
             if (_characters[_selectedCharIndex] == null)
                 Debug.LogError("_characters[_selectedCharIndex] is null");
             
