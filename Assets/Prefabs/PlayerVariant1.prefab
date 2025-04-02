@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_ActionId
@@ -61,12 +61,28 @@ PrefabInstance:
       value: 25275ceb-0d8d-491f-8efc-e88c0dcfcb6f
       objectReference: {fileID: 0}
     - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
+      value: bb811638-0de1-4c22-ba53-618eb327a776
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: ff822e4b-b415-4fe8-9873-cbc901ec9c60
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_ActionName
       value: 'Menu/MoveLeft[/Keyboard/a]'
       objectReference: {fileID: 0}
     - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
       propertyPath: m_ActionEvents.Array.data[2].m_ActionName
       value: 'Menu/MoveRight[/Keyboard/d]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
+      value: 'Player/Punch[/Keyboard/q]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: 'Player/Kick[/Keyboard/e]'
       objectReference: {fileID: 0}
     - target: {fileID: 6530662825846821060, guid: b28af09cdf77b35458f5630906012bab, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'

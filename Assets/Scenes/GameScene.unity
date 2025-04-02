@@ -287,10 +287,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b350883e50de4f58922f97f68e6d2cdd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterPrefab: {fileID: 8730673650055023342, guid: b28af09cdf77b35458f5630906012bab, type: 3}
   spawnPoints:
   - {fileID: 429046577}
   - {fileID: 1413489991}
+  playerPrefabs:
+  - {fileID: 9107531643247999217, guid: 79a572bdf16596443a2d3d5cf25aa902, type: 3}
+  - {fileID: 5575395493758400983, guid: d81887eeedcc2c641bfe102d73744141, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +551,37 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 1
+--- !u!1 &429046576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 429046577}
+  m_Layer: 0
+  m_Name: SpawnPoint1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &429046577
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429046576}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.35, y: 1.1, z: 0.04}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &566021184 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 84b69f3fec5886b4e94f56bc9bf27dc6, type: 3}
@@ -632,7 +665,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: e96814c5-a6da-4a45-8008-93fb278165c4
-    m_ActionName: Player/Move[/Keyboard/a,/Keyboard/d]
+    m_ActionName: 'Player/Move[/Keyboard/a,/Keyboard/d]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 566021185}
@@ -648,7 +681,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: bb811638-0de1-4c22-ba53-618eb327a776
-    m_ActionName: Player/Punch[/Keyboard/q]
+    m_ActionName: 'Player/Punch[/Keyboard/q]'
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 566021185}
@@ -664,7 +697,19 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
     m_ActionId: ff822e4b-b415-4fe8-9873-cbc901ec9c60
-    m_ActionName: Player/Kick[/Keyboard/e]
+    m_ActionName: 'Player/Kick[/Keyboard/e]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c45d7b04-7bb7-44db-926a-ceeb06ee2c7b
+    m_ActionName: 'Menu/MoveLeft[/Keyboard/a]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 25275ceb-0d8d-491f-8efc-e88c0dcfcb6f
+    m_ActionName: 'Menu/MoveRight[/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1867537a-db61-47c1-92d9-e8532de9b89b
+    m_ActionName: 'Menu/Ready[/Keyboard/enter]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -774,6 +819,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Maria
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 84b69f3fec5886b4e94f56bc9bf27dc6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -794,37 +843,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 603901796}
   m_SourcePrefab: {fileID: 100100000, guid: 84b69f3fec5886b4e94f56bc9bf27dc6, type: 3}
---- !u!1 &429046576
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 429046577}
-  m_Layer: 0
-  m_Name: SpawnPoint1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &429046577
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 429046576}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.35, y: 1.1, z: 0.04}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
