@@ -8,19 +8,19 @@ public class GameSpawner : MonoBehaviour
 
     void Start()
     {
-        SpawnPlayer(
-            Managers.GameManager.Instance.player1Character,
-            Managers.GameManager.Instance.Player1Device,
-            spawnPoints[0],
-            0
-        );
-
-        SpawnPlayer(
-            Managers.GameManager.Instance.player2Character,
-            Managers.GameManager.Instance.Player2Device,
-            spawnPoints[1],
-            1
-        );
+        // SpawnPlayer(
+        //     Managers.GameManager.Instance.player1Character,
+        //     Managers.GameManager.Instance.Player1Device,
+        //     spawnPoints[0],
+        //     0
+        // );
+        //
+        // SpawnPlayer(
+        //     Managers.GameManager.Instance.player2Character,
+        //     Managers.GameManager.Instance.Player2Device,
+        //     spawnPoints[1],
+        //     1
+        // );
     }
 
     void SpawnPlayer(string characterName, InputDevice device, Transform spawnPoint, int playerIndex)
