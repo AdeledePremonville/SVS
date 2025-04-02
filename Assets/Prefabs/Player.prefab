@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7618090953868263997}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -179,6 +179,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: e96814c5-a6da-4a45-8008-93fb278165c4
     m_ActionName: 'Player/Move[/XInputControllerWindows1/leftStick/left,/XInputControllerWindows1/leftStick/right,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c45d7b04-7bb7-44db-926a-ceeb06ee2c7b
+    m_ActionName: 'Menu/MoveLeft[/Keyboard/a]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 25275ceb-0d8d-491f-8efc-e88c0dcfcb6f
+    m_ActionName: 'Menu/MoveRight[/Keyboard/d]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
