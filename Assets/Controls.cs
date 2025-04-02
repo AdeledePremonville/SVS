@@ -310,6 +310,10 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Punch = m_Player.FindAction("Punch", throwIfNotFound: true);
         m_Player_Kick = m_Player.FindAction("Kick", throwIfNotFound: true);
+        // Menu
+        m_Menu = asset.FindActionMap("Menu", throwIfNotFound: true);
+        m_Menu_MoveLeft = m_Menu.FindAction("MoveLeft", throwIfNotFound: true);
+        m_Menu_MoveRight = m_Menu.FindAction("MoveRight", throwIfNotFound: true);
     }
 
     ~@Controls()
