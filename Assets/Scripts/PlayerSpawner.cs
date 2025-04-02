@@ -3,31 +3,53 @@ using UnityEngine.InputSystem;
 
 public class GameSpawner : MonoBehaviour
 {
-    public GameObject characterPrefab;
     public Transform[] spawnPoints;
+    public GameObject[] playerPrefabs;
 
-    void Start()
+    private void Start()
     {
-        // SpawnPlayer(
-        //     Managers.GameManager.Instance.player1Character,
-        //     Managers.GameManager.Instance.Player1Device,
-        //     spawnPoints[0],
-        //     0
-        // );
-        //
-        // SpawnPlayer(
-        //     Managers.GameManager.Instance.player2Character,
-        //     Managers.GameManager.Instance.Player2Device,
-        //     spawnPoints[1],
-        //     1
-        // );
+        if (Managers.GameManager.Instance.Player1Device != null)
+        {
+            SpawnPlayer(
+                Managers.GameManager.Instance.player1Character,
+                Managers.GameManager.Instance.Player1Device,
+                spawnPoints[0],
+                0
+            );
+        }
+        if (Managers.GameManager.Instance.Player2Device != null)
+        {
+            SpawnPlayer(
+                Managers.GameManager.Instance.player2Character,
+                Managers.GameManager.Instance.Player2Device,
+                spawnPoints[1],
+                1
+            );
+        }
     }
 
-    void SpawnPlayer(string characterName, InputDevice device, Transform spawnPoint, int playerIndex)
+    private GameObject GetPrefabByName(string prefabName)
+    {
+        if (prefabName.EndsWith("(Clone)"))
+        {
+            prefabName = prefabName.Substring(0, prefabName.Length - "(Clone)".Length);
+        }
+        
+        foreach (var prefab in playerPrefabs)
+        {
+            if (prefab.name == prefabName)
+                return prefab;
+        }
+    
+        Debug.LogError($"Character prefab not found: {prefabName}");
+        return null;
+    }
+    
+    private void SpawnPlayer(string characterPrefab, InputDevice device, Transform spawnPoint, int playerIndex)
     {
 
         var player = PlayerInput.Instantiate(
-            characterPrefab,
+            GetPrefabByName(characterPrefab),
             playerIndex: playerIndex,
             controlScheme: null,
             pairWithDevice: device
@@ -36,15 +58,4 @@ public class GameSpawner : MonoBehaviour
         player.transform.position = spawnPoint.position;
     }
 
-    // GameObject GetPrefabByName(string name)
-    // {
-    //     foreach (var prefab in characterPrefabs)
-    //     {
-    //         if (prefab.name == name)
-    //             return prefab;
-    //     }
-    //
-    //     Debug.LogError($"Character prefab not found: {name}");
-    //     return null;
-    // }
 }
