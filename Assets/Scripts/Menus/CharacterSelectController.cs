@@ -2,6 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 namespace Menus
 {
@@ -15,6 +16,9 @@ namespace Menus
         private int _selectedCharIndex = 0;
         private int _playerIndex = -1;
         private string _selectorQuad;
+        
+        private float _inputDelay = 0.5f;
+
 
         private void Awake()
         {
@@ -24,10 +28,6 @@ namespace Menus
             if (!input) return;
             
             _controls.asset.devices = input.devices;
-            _controls.Menu.MoveLeft.performed += _ => OnMoveLeft();
-            _controls.Menu.MoveRight.performed += _ => OnMoveRight();
-            _controls.Menu.Ready.performed += _ => OnReady();
-            
             _playerIndex = input.playerIndex;
 
             if (_playerIndex == 0)
@@ -41,7 +41,22 @@ namespace Menus
                 Managers.GameManager.Instance.Player2Device = input.devices[0];
             }
             SpawnSelector();
+            
+            StartCoroutine(EnableControlsWithDelay());
         }
+        
+        private IEnumerator EnableControlsWithDelay()
+        {
+            _controls.Menu.Disable();
+            yield return new WaitForSeconds(_inputDelay);
+            _controls.Menu.Enable();
+            
+            _controls.Menu.MoveLeft.performed += _ => OnMoveLeft();
+            _controls.Menu.MoveRight.performed += _ => OnMoveRight();
+            _controls.Menu.Ready.performed += _ => OnReady();
+        }
+
+
 
         private void SpawnSelector()
         {
@@ -162,7 +177,9 @@ namespace Menus
                 player2ReadyText.text = "Ready";
             }
 
-            if (Managers.GameManager.Instance.player1Ready && Managers.GameManager.Instance.player2Ready)
+            if ((Managers.GameManager.Instance.Player1Device != null && Managers.GameManager.Instance.Player2Device == null) ||
+                (Managers.GameManager.Instance.Player2Device != null && Managers.GameManager.Instance.Player1Device == null) ||
+                Managers.GameManager.Instance.player1Ready && Managers.GameManager.Instance.player2Ready)
             {
                 SceneManager.LoadScene("GameScene");
             }
