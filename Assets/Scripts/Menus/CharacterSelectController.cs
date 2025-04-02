@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
@@ -6,30 +7,40 @@ namespace Menus
 {
     public class CharacterSelectController : MonoBehaviour
     {
+        public TextMeshProUGUI player1ReadyText;
+        public TextMeshProUGUI player2ReadyText;
+        
         private Controls _controls;
         private GameObject[] _characters;
         private int _selectedCharIndex = 0;
         private int _playerIndex = -1;
+        private string _selectorQuad;
 
         private void Awake()
         {
-            _controls = new Controls();
-
-            _controls.Menu.MoveLeft.performed += _ => OnMoveLeft();
-            _controls.Menu.MoveRight.performed += _ => OnMoveRight();
-            _controls.Menu.Ready.performed += _ => OnReady();
+            _controls = new Controls(); 
             
             var input = GetComponent<PlayerInput>();
             if (!input) return;
+            
+            _controls.asset.devices = input.devices;
+            _controls.Menu.MoveLeft.performed += _ => OnMoveLeft();
+            _controls.Menu.MoveRight.performed += _ => OnMoveRight();
+            _controls.Menu.Ready.performed += _ => OnReady();
             
             _playerIndex = input.playerIndex;
 
             if (_playerIndex == 0)
             {
                 Managers.GameManager.Instance.Player1Device = input.devices[0];
-                SpawnSelector();
-            } else
+                _selectorQuad = "SelectorQuad1";
+            }
+            else
+            {
+                _selectorQuad = "SelectorQuad2";
                 Managers.GameManager.Instance.Player2Device = input.devices[0];
+            }
+            SpawnSelector();
         }
 
         private void SpawnSelector()
@@ -75,7 +86,7 @@ namespace Menus
         {
             if (_characters is { Length: > 0 } && _characters[_selectedCharIndex] != null)
             {
-                var selector = _characters[_selectedCharIndex].transform.Find("SelectorQuad");
+                var selector = _characters[_selectedCharIndex].transform.Find(_selectorQuad);
                 if (selector != null)
                 {
                     DisableSelector(selector.GetComponent<MeshRenderer>());
@@ -102,7 +113,7 @@ namespace Menus
                 _selectedCharIndex += increment;
             }
 
-            var nextSelector = _characters[_selectedCharIndex]?.transform.Find("SelectorQuad");
+            var nextSelector = _characters[_selectedCharIndex]?.transform.Find(_selectorQuad);
             if (nextSelector != null)
             {
                 EnableSelector(nextSelector.GetComponent<MeshRenderer>());
@@ -141,13 +152,20 @@ namespace Menus
             if (_playerIndex == 0)
             {
                 Managers.GameManager.Instance.player1Character = _characters[_selectedCharIndex].name;
+                Managers.GameManager.Instance.player1Ready = true;
+                player1ReadyText.text = "Ready";
             }
             else
             {
                 Managers.GameManager.Instance.player2Character = _characters[_selectedCharIndex].name;
+                Managers.GameManager.Instance.player2Ready = true;
+                player2ReadyText.text = "Ready";
             }
-            
-            SceneManager.LoadScene("GameScene");
+
+            if (Managers.GameManager.Instance.player1Ready && Managers.GameManager.Instance.player2Ready)
+            {
+                SceneManager.LoadScene("GameScene");
+            }
         }
         
     }

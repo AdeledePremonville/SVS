@@ -50,7 +50,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
       propertyPath: m_ActionEvents.Array.size
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_ActionId
@@ -69,6 +69,10 @@ PrefabInstance:
       value: ff822e4b-b415-4fe8-9873-cbc901ec9c60
       objectReference: {fileID: 0}
     - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 1867537a-db61-47c1-92d9-e8532de9b89b
+      objectReference: {fileID: 0}
+    - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
       propertyPath: m_ActionEvents.Array.data[1].m_ActionName
       value: 'Menu/MoveLeft[/Keyboard/a]'
       objectReference: {fileID: 0}
@@ -84,10 +88,18 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[4].m_ActionName
       value: 'Player/Kick[/Keyboard/e]'
       objectReference: {fileID: 0}
+    - target: {fileID: 5618719696179003048, guid: b28af09cdf77b35458f5630906012bab, type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: 'Menu/Ready[/Keyboard/enter]'
+      objectReference: {fileID: 0}
     - target: {fileID: 6530662825846821060, guid: b28af09cdf77b35458f5630906012bab, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 5d3d3ad1588ad0841950b05698f3ec4c, type: 2}
+    - target: {fileID: 7088077510579990167, guid: b28af09cdf77b35458f5630906012bab, type: 3}
+      propertyPath: m_Name
+      value: SelectorQuad1
+      objectReference: {fileID: 0}
     - target: {fileID: 8730673650055023342, guid: b28af09cdf77b35458f5630906012bab, type: 3}
       propertyPath: m_Name
       value: PlayerVariant1
