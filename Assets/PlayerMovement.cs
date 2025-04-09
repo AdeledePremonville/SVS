@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         controller = GetComponent<CharacterController>();
-        animator = GetComponent<Animator>();
+        animator = transform.Find("Model")?.GetComponent<Animator>();
     }
 
     public void OnMove(InputAction.CallbackContext context)
