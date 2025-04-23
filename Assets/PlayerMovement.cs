@@ -1,8 +1,6 @@
-
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.Controls;
 
 [RequireComponent(typeof(CharacterController))]
 public class PlayerMovement : MonoBehaviour
@@ -11,7 +9,10 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 moveInput;
     private Animator animator;
 
-    public float speed = 5f;
+    public float speed = 2f;
+    private bool isMoving = false;
+    private bool isPunching = false;
+    private bool isKicking = false;
 
     void Awake()
     {
@@ -22,30 +23,68 @@ public class PlayerMovement : MonoBehaviour
     public void OnMove(InputAction.CallbackContext context)
     {
         moveInput = context.ReadValue<Vector2>();
+        isMoving = moveInput.sqrMagnitude > 0.01f;
+        animator.SetBool("OnMoving", isMoving);
+    }
+
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        Debug.Log("Crouching");
+        if (context.started || context.performed)
+        {
+            animator.SetBool("IsCrouching", true);
+        }
+        else if (context.canceled)
+        {
+            animator.SetBool("IsCrouching", false);
+        }
     }
 
     public void OnPunch(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !isPunching && !isKicking)
         {
             Debug.Log("Punch");
-            animator.SetTrigger("PunchTrigger");
+            isPunching = true;
+            animator.SetBool("IsPunching", true);
+            Invoke("ResetPunch", 0.5f); // Adjust based on animation length
         }
     }
 
     public void OnKick(InputAction.CallbackContext context)
     {
-        if (context.performed)
+        if (context.performed && !isPunching && !isKicking)
         {
             Debug.Log("Kick");
-            animator.SetTrigger("KickTrigger");
+            isKicking = true;
+            animator.SetBool("IsKicking", true);
+            Invoke("ResetKick", 1f); // Adjust based on animation length
         }
+    }
+
+    void ResetPunch()
+    {
+        isPunching = false;
+        animator.SetBool("IsPunching", false);
+    }
+
+    void ResetKick()
+    {
+        isKicking = false;
+        animator.SetBool("IsKicking", false);
     }
 
     void Update()
     {
-        Vector3 move = new Vector3(moveInput.x, 0, 0);
-        controller.Move(move * speed * Time.deltaTime);
+        if (!isPunching && !isKicking)
+        {
+            Vector3 move = new Vector3(moveInput.x, 0, moveInput.y);
+            controller.Move(move * speed * Time.deltaTime);
 
+            if (move != Vector3.zero)
+            {
+                transform.forward = move; // Rotate character in movement direction
+            }
+        }
     }
 }
