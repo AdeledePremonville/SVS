@@ -471,7 +471,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 3301228211155612393, guid: 2e9d027f656889f4da83582ea5fad6e9, type: 3}
-  - {fileID: 3301228211155612393, guid: 2e9d027f656889f4da83582ea5fad6e9, type: 3}
+  - {fileID: 2688127636186690718, guid: 356a8ebee51f5494d8c3d9d31f5cc57b, type: 3}
 --- !u!1 &1007851862
 GameObject:
   m_ObjectHideFlags: 0
@@ -505,6 +505,7 @@ MonoBehaviour:
   player2Character: 
   player2Ready: 0
   player1Ready: 0
+  selectedMap: 
   gameMode: 
 --- !u!4 &1007851864
 Transform:
@@ -955,7 +956,7 @@ GameObject:
   - component: {fileID: 1806215129}
   - component: {fileID: 1806215128}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CharacterSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
