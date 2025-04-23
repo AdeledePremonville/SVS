@@ -6,6 +6,7 @@ using System.Collections;
 
 namespace Menus
 {
+    
     public class CharacterSelectController : MonoBehaviour
     {
         public TextMeshProUGUI player1ReadyText;
@@ -18,8 +19,7 @@ namespace Menus
         private string _selectorQuad;
         
         private float _inputDelay = 0.5f;
-
-
+        
         private void Awake()
         {
             _controls = new Controls(); 
@@ -154,6 +154,7 @@ namespace Menus
             if ((_playerIndex == 0 && Managers.GameManager.Instance.player1Ready) ||
                 (_playerIndex == 1 && Managers.GameManager.Instance.player2Ready))
                 return;
+            
             UpdateSelector(-1);
         }
 
@@ -162,6 +163,7 @@ namespace Menus
             if ((_playerIndex == 0 && Managers.GameManager.Instance.player1Ready) ||
                 (_playerIndex == 1 && Managers.GameManager.Instance.player2Ready))
                 return;
+            
             UpdateSelector(1);
         }
 
@@ -191,7 +193,7 @@ namespace Menus
                 (Managers.GameManager.Instance.Player2Device != null && Managers.GameManager.Instance.Player1Device == null) ||
                 Managers.GameManager.Instance.player1Ready && Managers.GameManager.Instance.player2Ready)
             {
-                SceneManager.LoadScene("GameScene");
+                SceneManager.LoadScene("MapSelect");
             }
         }
         

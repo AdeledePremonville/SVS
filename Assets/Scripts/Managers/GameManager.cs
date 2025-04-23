@@ -14,6 +14,10 @@ namespace Managers
         public InputDevice Player2Device;
         public bool player2Ready = false;
         public bool player1Ready = false;
+        public bool player1SelectedMap = false;
+        public bool player2SelectedMap = false;
+        
+        public string selectedMap = "";
 
         public string gameMode; // "Solo", "Versus"
 
