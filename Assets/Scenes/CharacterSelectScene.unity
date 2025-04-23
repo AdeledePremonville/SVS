@@ -505,6 +505,8 @@ MonoBehaviour:
   player2Character: 
   player2Ready: 0
   player1Ready: 0
+  player1SelectedMap: 0
+  player2SelectedMap: 0
   selectedMap: 
   gameMode: 
 --- !u!4 &1007851864
