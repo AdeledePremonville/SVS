@@ -24,8 +24,12 @@ namespace Menus
 
                 if (selector1 != null && selector2 != null)
                 {
-                    selector1.gameObject.SetActive(false);
-                    selector2.gameObject.SetActive(false);
+                    if (_playerIndex == 0)
+                    {
+                        selector1.gameObject.SetActive(false);
+                        selector2.gameObject.SetActive(false);
+                    } else if (_playerIndex == 1)
+                        selector2.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -35,6 +39,7 @@ namespace Menus
             
             if (maps != null && maps.Length > 0)
             {
+                Debug.Log("ToggleSlectorForPlayer = " + _playerIndex);
                 ToggleSelectorForPlayer(true);
             }
             else
@@ -52,6 +57,7 @@ namespace Menus
             
             _controls.asset.devices = input.devices;
             _playerIndex = input.playerIndex;
+            
             
             StartCoroutine(EnableControlsWithDelay());
         }

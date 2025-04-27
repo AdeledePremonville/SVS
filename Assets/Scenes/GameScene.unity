@@ -1472,7 +1472,7 @@ GameObject:
   - component: {fileID: 1158732217}
   - component: {fileID: 1158732218}
   m_Layer: 0
-  m_Name: GameManager
+  m_Name: RoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1487,11 +1487,11 @@ Transform:
   m_GameObject: {fileID: 1158732216}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -450.37524, y: 41.420197, z: 56.46567}
+  m_LocalPosition: {x: -131.66095, y: 199.34877, z: 56.46567}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1915988880}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1158732218
 MonoBehaviour:
@@ -1502,20 +1502,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1158732216}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a8319fd69041edaa68fb809e687628, type: 3}
+  m_Script: {fileID: 11500000, guid: a8295ce42d664a2e83ba28e8b7fccce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 0}
-  player2: {fileID: 0}
   player1HealthBar: {fileID: 678550834}
   player2HealthBar: {fileID: 1774283907}
   leaveButton: {fileID: 1693995396}
   restartButton: {fileID: 806870493}
-  player1Ready: 0
-  player2Ready: 0
-  player1Character: 
-  player2Character: 
-  gameMode: 
   roundText: {fileID: 1181729920}
   mainText: {fileID: 1432664265}
   roundCountText: {fileID: 690579750}
@@ -2478,7 +2471,6 @@ RectTransform:
   - {fileID: 1774283908}
   - {fileID: 1181729919}
   - {fileID: 1432664264}
-  - {fileID: 1158732217}
   - {fileID: 1693995395}
   - {fileID: 806870492}
   - {fileID: 690579749}
@@ -2489,26 +2481,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1850364303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1850364302}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a8319fd69041edaa68fb809e687628, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player1Character: 
-  player2Character: 
-  player2Ready: 0
-  player1Ready: 0
-  player1SelectedMap: 0
-  player2SelectedMap: 0
-  selectedMap: 
-  gameMode: 
 --- !u!1 &1929462887
 GameObject:
   m_ObjectHideFlags: 0
@@ -2667,3 +2639,4 @@ SceneRoots:
   - {fileID: 429046577}
   - {fileID: 1413489991}
   - {fileID: 1915988880}
+  - {fileID: 1158732217}
