@@ -852,8 +852,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  normalMaterial: {fileID: 2100000, guid: b9d1a16220322134f84710f06e587808, type: 2}
-  redMaterial: {fileID: 2100000, guid: 04426208dc8b128919bbecc2c269e7d8, type: 2}
+  currentHealth: 0
+  playerHealthBar: {fileID: 678550836}
 --- !u!54 &523575540
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1657,8 +1657,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8295ce42d664a2e83ba28e8b7fccce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1HealthBar: {fileID: 678550834}
-  player2HealthBar: {fileID: 1774283907}
+  player1: {fileID: 523575534}
+  player2: {fileID: 0}
   leaveButton: {fileID: 1693995396}
   restartButton: {fileID: 806870493}
   roundText: {fileID: 1181729920}

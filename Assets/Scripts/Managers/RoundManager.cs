@@ -1,17 +1,14 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 namespace Managers
 {
     public class RoundManager : MonoBehaviour
     {
-        public GameObject player1HealthBar;
-        public GameObject player2HealthBar;
+        public GameObject player1;
+        public GameObject player2;
 
         public Button leaveButton;
         public Button restartButton;
@@ -32,26 +29,26 @@ namespace Managers
             restartButton.gameObject.SetActive(false);
 
 
-            player1HealthBar.GetComponent<Slider>().value = 100;
-            player2HealthBar.GetComponent<Slider>().value = 100;
+            //player1HealthBar.GetComponent<Slider>().value = 100;
+            //player2HealthBar.GetComponent<Slider>().value = 100;
             DontDestroyOnLoad(gameObject);
         }
 
         private void Update()
         {
-            Slider player1Health = player1HealthBar.GetComponent<Slider>();
-            Slider player2Health = player2HealthBar.GetComponent<Slider>();
+            int player1Health = player1.GetComponent<Health>().currentHealth;
+            int player2Health = player1.GetComponent<Health>().currentHealth;
 
-            if (isGameRunning)
-                player1Health.value -= 1;
-            if (player1Health.value <= 0 && isGameRunning)
+            //if (isGameRunning)
+            //    player1Health.value -= 1;
+            if (player1Health <= 0 && isGameRunning)
             {
-                mainText.text = "Player 1 won!";
+                mainText.text = player1.name + " won!";
                 NewRound();
             }
-            else if (player2Health.value <= 0 && isGameRunning)
+            else if (player2Health <= 0 && isGameRunning)
             {
-                mainText.text = "Player 2 won!";
+                mainText.text = player2.name + " won!";
                 NewRound();
 
             }
@@ -71,8 +68,8 @@ namespace Managers
             // Start the new round after countdown
             roundNb += 1;
             roundText.text = roundNb.ToString();
-            player1HealthBar.GetComponent<Slider>().value = 100;
-            player2HealthBar.GetComponent<Slider>().value = 100;
+            //player1HealthBar.GetComponent<Slider>().value = 100;
+            //player2HealthBar.GetComponent<Slider>().value = 100;
             roundCountText.text = ""; // Clear countdown text
             mainText.text = ""; // Optionally clear winner text
             isGameRunning = true;
@@ -85,15 +82,9 @@ namespace Managers
             {
                 isGameRunning = false;
                 StartCoroutine(CountdownToNextRound());
-                //roundCountText.text = "New round starting in " + newRoundCount;
-                //roundNb += 1;
-                //player1HealthBar.GetComponent<Slider>().value = 100;
-                //player2HealthBar.GetComponent<Slider>().value = 100;
-                //roundText.text = roundNb.ToString();
             }
             else
             {
-                //mainText.text = "End";
                 leaveButton.gameObject.SetActive(true);
                 restartButton.gameObject.SetActive(true);
 

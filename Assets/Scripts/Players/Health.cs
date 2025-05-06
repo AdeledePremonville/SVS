@@ -1,33 +1,41 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Health : MonoBehaviour, IDamageable
 {
     public int maxHealth = 100;
-    private int currentHealth;
+    public int currentHealth = 100;
+    public Slider playerHealthBar;
 
-    public Material normalMaterial; // e.g., blue
-    public Material redMaterial;    // flashing color
+    //public Material normalMaterial; // e.g., blue
+    //public Material redMaterial;    // flashing color
 
-    private Renderer characterRenderer;
+    //private Renderer characterRenderer;
 
     void Start() {
         currentHealth = maxHealth;
-        characterRenderer = GetComponentInChildren<Renderer>();
+        //characterRenderer = GetComponentInChildren<Renderer>();
 
-        if (characterRenderer != null && normalMaterial != null)
-        {
-            characterRenderer.material = normalMaterial;
-        }
+        //if (characterRenderer != null && normalMaterial != null)
+        //{
+        //    characterRenderer.material = normalMaterial;
+        //}
+    }
+
+    private void Update()
+    {
+        if (playerHealthBar)
+            playerHealthBar.value = currentHealth;
     }
 
     public void TakeDamage(int amount) {
         currentHealth -= amount;
         Debug.Log($"{gameObject.name} took {amount} damage. Health: {currentHealth}");
 
-        if (characterRenderer != null)
-        {
-            StartCoroutine(FlashRed());
-        }
+        //if (characterRenderer != null)
+        //{
+        StartCoroutine(FlashRed());
+        //}
 
         if (currentHealth <= 0) {
             Die();
@@ -36,9 +44,9 @@ public class Health : MonoBehaviour, IDamageable
 
     private System.Collections.IEnumerator FlashRed()
     {
-        characterRenderer.material = redMaterial;
+        //characterRenderer.material = redMaterial;
         yield return new WaitForSeconds(0.15f); // Flash duration
-        characterRenderer.material = normalMaterial;
+        //characterRenderer.material = normalMaterial;
     }
 
     private void Die() {
