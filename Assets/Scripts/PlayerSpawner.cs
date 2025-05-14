@@ -10,11 +10,11 @@ public class GameSpawner : MonoBehaviour
 
     private void Start()
     {
-        if (Managers.GameManager.Instance.Player1Device != null)
+        if (GameManager.Instance.Player1Device != null)
         {
             var player = SpawnPlayer(
-                Managers.GameManager.Instance.player1Character,
-                Managers.GameManager.Instance.Player1Device,
+                GameManager.Instance.player1Character,
+                GameManager.Instance.Player1Device,
                 spawnPoints[0],
                 0
             );
@@ -23,8 +23,8 @@ public class GameSpawner : MonoBehaviour
         if (Managers.GameManager.Instance.Player2Device != null)
         {
             var player = SpawnPlayer(
-                Managers.GameManager.Instance.player2Character,
-                Managers.GameManager.Instance.Player2Device,
+                GameManager.Instance.player2Character,
+                GameManager.Instance.Player2Device,
                 spawnPoints[1],
                 1
             );
@@ -32,12 +32,13 @@ public class GameSpawner : MonoBehaviour
         }
         else
         {
-            SpawnPlayer(
-                Managers.GameManager.Instance.player1Character,
-                Managers.GameManager.Instance.Player2Device,
+            var player = SpawnPlayer(
+                GameManager.Instance.player1Character,
+                GameManager.Instance.Player2Device,
                 spawnPoints[1],
                 1
             );
+            roundManager.GetComponent<RoundManager>().player2 = player;
         }
     }
 
@@ -60,25 +61,19 @@ public class GameSpawner : MonoBehaviour
     
     private GameObject SpawnPlayer(string characterPrefab, InputDevice device, Transform spawnPoint, int playerIndex)
     {
-        PlayerInput player;
-
+        string controlScheme = null;
+        
         if (device == null)
         {
-           player = PlayerInput.Instantiate(
-                GetPrefabByName(characterPrefab),
-                playerIndex: playerIndex,
-                controlScheme: null
-            );
+            controlScheme = "AI";
         }
-        else
-        {
-            player = PlayerInput.Instantiate(
-                GetPrefabByName(characterPrefab),
-                playerIndex: playerIndex,
-                controlScheme: null,
-                pairWithDevice: device
-            );
-        }
+
+        var player = PlayerInput.Instantiate(
+            GetPrefabByName(characterPrefab),
+            playerIndex: playerIndex,
+            controlScheme: controlScheme,
+            pairWithDevice: device
+        );
 
 
         player.transform.position = spawnPoint.position;
