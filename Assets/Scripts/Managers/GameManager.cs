@@ -12,10 +12,6 @@ namespace Managers
     {
         public static GameManager Instance;
 
-        // public GameObject player1;
-        // public GameObject player2;
-
-
         public InputDevice Player1Device;
         public InputDevice Player2Device;
         public bool player2Ready = false;
@@ -24,8 +20,8 @@ namespace Managers
         public bool player2SelectedMap = false;
         
         public string selectedMap = "";
-        public string player1Character;
-        public string player2Character;
+        public GameObject player1Character;
+        public GameObject player2Character;
 
         public string gameMode; // "Solo", "Versus"
 
