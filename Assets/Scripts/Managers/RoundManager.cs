@@ -28,9 +28,6 @@ namespace Managers
             leaveButton.gameObject.SetActive(false);
             restartButton.gameObject.SetActive(false);
 
-
-            //player1HealthBar.GetComponent<Slider>().value = 100;
-            //player2HealthBar.GetComponent<Slider>().value = 100;
             DontDestroyOnLoad(gameObject);
         }
 
