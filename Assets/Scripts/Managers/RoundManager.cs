@@ -68,7 +68,7 @@ namespace Managers
             roundCountText.text = ""; // Clear countdown text
             mainText.text = ""; // Optionally clear winner text
             isGameRunning = true;
-            StopCoroutine(CountdownToNextRound());
+            StopCoroutine(CountdownToNextRound()); 
         }
 
         private void NewRound()
