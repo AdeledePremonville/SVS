@@ -32,12 +32,13 @@ public class GameSpawner : MonoBehaviour
         }
         else
         {
-            SpawnPlayer(
+            var player = SpawnPlayer(
                 GameManager.Instance.player1Character,
                 GameManager.Instance.Player2Device,
                 spawnPoints[1],
                 1
             );
+            roundManager.GetComponent<RoundManager>().player2 = player;
         }
     }
 
