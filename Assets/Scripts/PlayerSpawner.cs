@@ -10,22 +10,33 @@ public class GameSpawner : MonoBehaviour
     {
         if (Managers.GameManager.Instance.Player1Device != null)
         {
-            SpawnPlayer(
+            var player = SpawnPlayer(
                 Managers.GameManager.Instance.player1Character,
                 Managers.GameManager.Instance.Player1Device,
                 spawnPoints[0],
                 0
             );
+            Managers.GameManager.Instance.player1 = player;
         }
         if (Managers.GameManager.Instance.Player2Device != null)
         {
-            SpawnPlayer(
+            var player = SpawnPlayer(
                 Managers.GameManager.Instance.player2Character,
                 Managers.GameManager.Instance.Player2Device,
                 spawnPoints[1],
                 1
             );
+            Managers.GameManager.Instance.player2 = player;
         }
+        // else
+        // {
+        //     SpawnPlayer(
+        //         Managers.GameManager.Instance.player1Character,
+        //         Managers.GameManager.Instance.Player2Device,
+        //         spawnPoints[1],
+        //         1
+        //     );
+        // }
     }
 
     private GameObject GetPrefabByName(string prefabName)
@@ -45,17 +56,31 @@ public class GameSpawner : MonoBehaviour
         return null;
     }
     
-    private void SpawnPlayer(string characterPrefab, InputDevice device, Transform spawnPoint, int playerIndex)
+    private GameObject SpawnPlayer(string characterPrefab, InputDevice device, Transform spawnPoint, int playerIndex)
     {
+        PlayerInput player;
 
-        var player = PlayerInput.Instantiate(
-            GetPrefabByName(characterPrefab),
-            playerIndex: playerIndex,
-            controlScheme: null,
-            pairWithDevice: device
-        );
+        // if (device == null)
+        // {
+        //    player = PlayerInput.Instantiate(
+        //         GetPrefabByName(characterPrefab),
+        //         playerIndex: playerIndex,
+        //         controlScheme: null
+        //     );
+        // }
+        // else
+        // {
+            player = PlayerInput.Instantiate(
+                GetPrefabByName(characterPrefab),
+                playerIndex: playerIndex,
+                controlScheme: null,
+                pairWithDevice: device
+            );
+        // }
+
 
         player.transform.position = spawnPoint.position;
+        return player.gameObject;
     }
 
 }
