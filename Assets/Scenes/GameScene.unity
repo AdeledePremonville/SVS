@@ -365,6 +365,7 @@ MonoBehaviour:
   playerPrefabs:
   - {fileID: 3301228211155612393, guid: 2e9d027f656889f4da83582ea5fad6e9, type: 3}
   - {fileID: 2688127636186690718, guid: 356a8ebee51f5494d8c3d9d31f5cc57b, type: 3}
+  roundManager: {fileID: 1158732216}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0

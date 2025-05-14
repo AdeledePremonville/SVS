@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using Managers;
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class GameSpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
     public GameObject[] playerPrefabs;
+    public GameObject roundManager;
 
     private void Start()
     {
@@ -16,7 +18,7 @@ public class GameSpawner : MonoBehaviour
                 spawnPoints[0],
                 0
             );
-            Managers.GameManager.Instance.player1 = player;
+            roundManager.GetComponent<RoundManager>().player1 = player;
         }
         if (Managers.GameManager.Instance.Player2Device != null)
         {
@@ -26,17 +28,17 @@ public class GameSpawner : MonoBehaviour
                 spawnPoints[1],
                 1
             );
-            Managers.GameManager.Instance.player2 = player;
+            roundManager.GetComponent<RoundManager>().player2 = player;
         }
-        // else
-        // {
-        //     SpawnPlayer(
-        //         Managers.GameManager.Instance.player1Character,
-        //         Managers.GameManager.Instance.Player2Device,
-        //         spawnPoints[1],
-        //         1
-        //     );
-        // }
+        else
+        {
+            SpawnPlayer(
+                Managers.GameManager.Instance.player1Character,
+                Managers.GameManager.Instance.Player2Device,
+                spawnPoints[1],
+                1
+            );
+        }
     }
 
     private GameObject GetPrefabByName(string prefabName)
@@ -60,23 +62,23 @@ public class GameSpawner : MonoBehaviour
     {
         PlayerInput player;
 
-        // if (device == null)
-        // {
-        //    player = PlayerInput.Instantiate(
-        //         GetPrefabByName(characterPrefab),
-        //         playerIndex: playerIndex,
-        //         controlScheme: null
-        //     );
-        // }
-        // else
-        // {
+        if (device == null)
+        {
+           player = PlayerInput.Instantiate(
+                GetPrefabByName(characterPrefab),
+                playerIndex: playerIndex,
+                controlScheme: null
+            );
+        }
+        else
+        {
             player = PlayerInput.Instantiate(
                 GetPrefabByName(characterPrefab),
                 playerIndex: playerIndex,
                 controlScheme: null,
                 pairWithDevice: device
             );
-        // }
+        }
 
 
         player.transform.position = spawnPoint.position;
