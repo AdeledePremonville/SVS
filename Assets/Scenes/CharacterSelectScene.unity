@@ -724,8 +724,8 @@ MonoBehaviour:
   player1SelectedMap: 0
   player2SelectedMap: 0
   selectedMap: 
-  player1Character: 
-  player2Character: 
+  player1Character: {fileID: 0}
+  player2Character: {fileID: 0}
   gameMode: 
 --- !u!4 &1007851864
 Transform:
@@ -835,6 +835,9 @@ MonoBehaviour:
   - {fileID: 1505214830}
   - {fileID: 292142955}
   characterSelectPrefab: {fileID: 7594978437480272833, guid: 846df65b575a6404198c85df345b99f1, type: 3}
+  playerPrefabs:
+  - {fileID: 3301228211155612393, guid: 2e9d027f656889f4da83582ea5fad6e9, type: 3}
+  - {fileID: 2688127636186690718, guid: 356a8ebee51f5494d8c3d9d31f5cc57b, type: 3}
 --- !u!1 &1505214830
 GameObject:
   m_ObjectHideFlags: 0

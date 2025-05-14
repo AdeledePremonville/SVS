@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class GameSpawner : MonoBehaviour
 {
     public Transform[] spawnPoints;
-    public GameObject[] playerPrefabs;
     public GameObject roundManager;
 
     private void Start()
@@ -48,20 +47,8 @@ public class GameSpawner : MonoBehaviour
             roundManager.GetComponent<RoundManager>().player2 = player;
         }
     }
-
-    private GameObject GetPrefabByName(string prefabName)
-    {
-        foreach (var prefab in playerPrefabs)
-        {
-            if (prefab.name == prefabName)
-                return prefab;
-        }
     
-        Debug.LogError($"Character prefab not found: {prefabName}");
-        return null;
-    }
-    
-    private GameObject SpawnPlayer(string characterPrefab, InputDevice device, Transform spawnPoint, int playerIndex)
+    private GameObject SpawnPlayer(GameObject characterPrefab, InputDevice device, Transform spawnPoint, int playerIndex)
     {
         string controlScheme = null;
         
@@ -71,7 +58,7 @@ public class GameSpawner : MonoBehaviour
         }
 
         var player = PlayerInput.Instantiate(
-            GetPrefabByName(characterPrefab),
+            characterPrefab,
             playerIndex: playerIndex,
             controlScheme: controlScheme,
             pairWithDevice: device
