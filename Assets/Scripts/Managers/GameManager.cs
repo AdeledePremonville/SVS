@@ -12,8 +12,8 @@ namespace Managers
     {
         public static GameManager Instance;
 
-        public GameObject player1;
-        public GameObject player2;
+        // public GameObject player1;
+        // public GameObject player2;
 
 
         public InputDevice Player1Device;
