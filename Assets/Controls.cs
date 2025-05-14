@@ -392,6 +392,11 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""AI"",
+            ""bindingGroup"": ""AI"",
+            ""devices"": []
         }
     ]
 }");
@@ -754,6 +759,19 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         {
             if (m_GamepadSchemeIndex == -1) m_GamepadSchemeIndex = asset.FindControlSchemeIndex("Gamepad");
             return asset.controlSchemes[m_GamepadSchemeIndex];
+        }
+    }
+    private int m_AISchemeIndex = -1;
+    /// <summary>
+    /// Provides access to the input control scheme.
+    /// </summary>
+    /// <seealso cref="UnityEngine.InputSystem.InputControlScheme" />
+    public InputControlScheme AIScheme
+    {
+        get
+        {
+            if (m_AISchemeIndex == -1) m_AISchemeIndex = asset.FindControlSchemeIndex("AI");
+            return asset.controlSchemes[m_AISchemeIndex];
         }
     }
     /// <summary>
