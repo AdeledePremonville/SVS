@@ -24,8 +24,12 @@ namespace Menus
 
                 if (selector1 != null && selector2 != null)
                 {
-                    selector1.gameObject.SetActive(false);
-                    selector2.gameObject.SetActive(false);
+                    if (_playerIndex == 0)
+                    {
+                        selector1.gameObject.SetActive(false);
+                        selector2.gameObject.SetActive(false);
+                    } else if (_playerIndex == 1)
+                        selector2.gameObject.SetActive(false);
                 }
                 else
                 {
@@ -53,7 +57,23 @@ namespace Menus
             _controls.asset.devices = input.devices;
             _playerIndex = input.playerIndex;
             
+            
             StartCoroutine(EnableControlsWithDelay());
+        }
+        
+        private void OnDestroy()
+        {
+            DisableControls();
+        }
+        
+        private void OnDisable()
+        {
+            DisableControls();
+        }
+        
+        private void DisableControls()
+        {
+            _controls.Menu.Disable();
         }
         
         private IEnumerator EnableControlsWithDelay()
@@ -70,7 +90,7 @@ namespace Menus
         private void ToggleSelectorForPlayer(bool toggle)
         {
             GameObject selector;
-
+            
             if (_playerIndex == 0)
             {
                 selector = maps[_selectedCharIndex].transform.Find("Selector1")?.gameObject;
@@ -86,8 +106,11 @@ namespace Menus
         
         private void OnMoveLeft()
         {
-            if ((_playerIndex == 0 && Managers.GameManager.Instance.player1SelectedMap) || (_playerIndex == 1 && Managers.GameManager.Instance.player2SelectedMap))
+            if ((_playerIndex == 0 && Managers.GameManager.Instance.player1SelectedMap) ||
+                (_playerIndex == 1 && Managers.GameManager.Instance.player2SelectedMap))
+            {
                 return;
+            }
             ToggleSelectorForPlayer(false);
             if (_selectedCharIndex == 0)
             {
@@ -141,15 +164,14 @@ namespace Menus
                     Managers.GameManager.Instance.player2SelectedMap)
                 {
                     Managers.GameManager.Instance.selectedMap = maps[_selectedCharIndex].name;
-                    SceneManager.LoadScene("GameScene"); // Should load selected map
+                    SceneManager.LoadScene("GameScene");
                 }
             }
             else
             {
                 Managers.GameManager.Instance.selectedMap = maps[_selectedCharIndex].name;
-                SceneManager.LoadScene("GameScene"); // Should load selected map
+                SceneManager.LoadScene("GameScene");
             }
         }
     }
-    
 }

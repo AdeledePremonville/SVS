@@ -453,4 +453,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1ReadyText: {fileID: 5919675223302315680}
   player2ReadyText: {fileID: 797929031270524342}
-  playerCharacterSelectCanva: {fileID: 6382824837798362544}
+  Characters:
+  - {fileID: 0}
