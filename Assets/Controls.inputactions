@@ -315,6 +315,11 @@
                     "isOR": false
                 }
             ]
+        },
+        {
+            "name": "AI",
+            "bindingGroup": "AI",
+            "devices": []
         }
     ]
 }
