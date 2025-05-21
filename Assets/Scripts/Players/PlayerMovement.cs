@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
     private bool isKicking = false;
     private bool isCrouching = false;
 
+    private bool isJumping = false;
+
     public HitboxTrigger punchHitboxTrigger;
     public HitboxTrigger kickHitboxTrigger;
 
@@ -29,6 +31,16 @@ public class PlayerMovement : MonoBehaviour
         moveInput = context.ReadValue<Vector2>();
         isMoving = moveInput.sqrMagnitude > 0.01f;
         animator.SetBool("OnMoving", isMoving);
+    }
+
+    public void OnJump(InputAction.CallbackContext context) {
+        Debug.Log("Jumping called");
+        if (context.performed && !isJumping) {
+            Debug.Log("Jumping");
+            animator.SetBool("IsJumping", true);
+            isJumping = true;
+            Invoke("ResetJump", 0.5f);
+        }
     }
 
     public void OnCrouch(InputAction.CallbackContext context)
@@ -68,6 +80,11 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("IsKicking", true);
             Invoke("ResetKick", 1f); // Adjust based on animation length
         }
+    }
+
+    void ResetJump() {
+        isJumping = false;
+        animator.SetBool("IsJumping", false);
     }
 
     void ResetPunch()
