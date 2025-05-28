@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 500382094}
   - component: {fileID: 500382093}
   m_Layer: 5
-  m_Name: Map2
+  m_Name: Sanctuary
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,13 +538,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a8319fd69041edaa68fb809e687628, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1Character: 
-  player2Character: 
   player2Ready: 0
   player1Ready: 0
   player1SelectedMap: 0
   player2SelectedMap: 0
   selectedMap: 
+  player1Character: {fileID: 0}
+  player2Character: {fileID: 0}
   gameMode: 
 --- !u!4 &730058747
 Transform:
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 1856439857}
   - component: {fileID: 1856439856}
   m_Layer: 5
-  m_Name: Map1
+  m_Name: GameScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

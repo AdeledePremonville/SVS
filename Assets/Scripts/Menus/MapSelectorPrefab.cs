@@ -164,13 +164,13 @@ namespace Menus
                     Managers.GameManager.Instance.player2SelectedMap)
                 {
                     Managers.GameManager.Instance.selectedMap = maps[_selectedCharIndex].name;
-                    SceneManager.LoadScene("GameScene");
+                    SceneManager.LoadScene(maps[_selectedCharIndex].name);
                 }
             }
             else
             {
                 Managers.GameManager.Instance.selectedMap = maps[_selectedCharIndex].name;
-                SceneManager.LoadScene("GameScene");
+                SceneManager.LoadScene(maps[_selectedCharIndex].name);
             }
         }
     }
