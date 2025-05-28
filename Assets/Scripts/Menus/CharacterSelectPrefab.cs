@@ -10,7 +10,6 @@ namespace Menus
     public class CharacterSelectPrefab : MonoBehaviour
     {
         public GameObject[] characters;
-        public GameObject[] playerPrefabs;
         
         private Controls _controls;
         private GameObject[] _characters;
@@ -143,11 +142,11 @@ namespace Menus
             if (_playerIndex == 0)
             {
                 Managers.GameManager.Instance.player1Ready = true;
-                Managers.GameManager.Instance.player1Character = GetPrefabByName(characters[_selectedCharIndex].name);
+                Managers.GameManager.Instance.player1Character = characters[_selectedCharIndex].name;
             } else
             {
                 Managers.GameManager.Instance.player2Ready = true;
-                Managers.GameManager.Instance.player2Character = GetPrefabByName(characters[_selectedCharIndex].name);
+                Managers.GameManager.Instance.player2Character = characters[_selectedCharIndex].name;
             }
 
             if (Managers.GameManager.Instance.Player1Device != null &&
@@ -173,18 +172,6 @@ namespace Menus
         private void OnDisable()
         {
             _controls.Menu.Disable();
-        }
-        
-        private GameObject GetPrefabByName(string prefabName)
-        {
-            foreach (var prefab in playerPrefabs)
-            {
-                if (prefab.name == prefabName)
-                    return prefab;
-            }
-    
-            Debug.LogError($"Character prefab not found: {prefabName}");
-            return null;
         }
         
     }
