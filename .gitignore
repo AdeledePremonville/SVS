@@ -73,3 +73,13 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+
+
+# Ignorer les fichiers lourds Unity souvent inutiles dans git
+*.psd
+*.tif
+*.tiff
+*.wav
+*.mp4
+*.mov
+*.fbx
