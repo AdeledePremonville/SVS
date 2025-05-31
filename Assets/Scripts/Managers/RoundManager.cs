@@ -31,7 +31,7 @@ namespace Managers
 
             //player1HealthBar.GetComponent<Slider>().value = 100;
             //player2HealthBar.GetComponent<Slider>().value = 100;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
 
         private void Update()

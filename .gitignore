@@ -85,3 +85,6 @@ crashlytics-build.properties
 *.mp4
 *.mov
 *.fbx
+
+Assets/Santuary/EnvironmentModels/Textures/MetalModularStructures.TIF
+Assets/Santuary/Scenes/Sanctuary/LightmapSnapshot.asset
