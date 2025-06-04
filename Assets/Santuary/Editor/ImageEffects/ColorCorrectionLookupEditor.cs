@@ -63,7 +63,6 @@ namespace UnityStandardAssets.ImageEffects
                         textureImporter.textureCompression = TextureImporterCompression.Uncompressed;
                         AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
                     }
-
                     (target as ColorCorrectionLookup).Convert(tex, path);
                 }
             }

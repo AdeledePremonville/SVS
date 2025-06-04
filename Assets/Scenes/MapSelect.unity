@@ -543,8 +543,8 @@ MonoBehaviour:
   player1SelectedMap: 0
   player2SelectedMap: 0
   selectedMap: 
-  player1Character: {fileID: 0}
-  player2Character: {fileID: 0}
+  player1Character: 
+  player2Character: 
   gameMode: 
 --- !u!4 &730058747
 Transform:
@@ -1033,7 +1033,7 @@ GameObject:
   - component: {fileID: 1856439857}
   - component: {fileID: 1856439856}
   m_Layer: 5
-  m_Name: GameScene
+  m_Name: Tales
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
