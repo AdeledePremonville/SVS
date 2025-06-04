@@ -86,6 +86,5 @@ crashlytics-build.properties
 *.mov
 *.fbx
 
-Assets/Santuary/EnvironmentModels/Textures/MetalModularStructures.TIF
-Assets/Santuary/Scenes/Sanctuary/LightmapSnapshot.asset
+Assets/Santuary/
 Assets/Flooded_Grounds
