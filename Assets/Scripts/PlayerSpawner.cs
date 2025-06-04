@@ -1,6 +1,7 @@
 ﻿using Managers;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GameSpawner : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class GameSpawner : MonoBehaviour
                 0
             );
             roundManager.GetComponent<RoundManager>().player1 = player;
+            player.GetComponent<Health>().playerHealthBar = GameObject.Find("Player1HealthBar").GetComponent<Slider>();
         }
         else
         {
@@ -35,6 +37,7 @@ public class GameSpawner : MonoBehaviour
                 1
             );
             roundManager.GetComponent<RoundManager>().player2 = player;
+            player.GetComponent<Health>().playerHealthBar = GameObject.Find("Player2HealthBar").GetComponent<Slider>();
         }
         else
         {
@@ -46,6 +49,7 @@ public class GameSpawner : MonoBehaviour
                 1
             );
             roundManager.GetComponent<RoundManager>().player2 = player;
+            player.GetComponent<Health>().playerHealthBar = GameObject.Find("Player2HealthBar").GetComponent<Slider>();
         }
     }
 
