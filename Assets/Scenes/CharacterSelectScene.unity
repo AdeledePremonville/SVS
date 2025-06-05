@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 292142958}
   - component: {fileID: 292142957}
   m_Layer: 5
-  m_Name: MariaPlayer2
+  m_Name: AsunaPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
