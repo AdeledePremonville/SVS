@@ -6,6 +6,20 @@ public class HitboxTrigger : MonoBehaviour
 {
     public int damage = 10;
     private bool canDealDamage = false;
+    
+    void Start()
+    {
+        Collider myHitbox = GetComponent<Collider>();
+        Collider[] ownerColliders = GetComponentsInParent<Collider>();
+
+        foreach (Collider c in ownerColliders)
+        {
+            if (c != myHitbox)
+            {
+                Physics.IgnoreCollision(myHitbox, c);
+            }
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
