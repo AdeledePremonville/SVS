@@ -8981,6 +8981,22 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2599232051114794143, guid: d04c3b286f067f548bc3532f9b083249, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599232051114794143, guid: d04c3b286f067f548bc3532f9b083249, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.14150941
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599232051114794143, guid: d04c3b286f067f548bc3532f9b083249, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.09550397
+      objectReference: {fileID: 0}
+    - target: {fileID: 2599232051114794143, guid: d04c3b286f067f548bc3532f9b083249, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.08877713
+      objectReference: {fileID: 0}
     - target: {fileID: 5311368474901865227, guid: d04c3b286f067f548bc3532f9b083249, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
