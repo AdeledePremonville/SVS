@@ -31,14 +31,15 @@ namespace Managers
 
             //player1HealthBar.GetComponent<Slider>().value = 100;
             //player2HealthBar.GetComponent<Slider>().value = 100;
-            DontDestroyOnLoad(gameObject);
+            // DontDestroyOnLoad(gameObject);
         }
 
         private void Update()
         {
             int player1Health = player1.GetComponent<Health>().currentHealth;
-            int player2Health = player1.GetComponent<Health>().currentHealth;
+            int player2Health = player2.GetComponent<Health>().currentHealth;
 
+            Debug.Log("player 2 helath " + player2Health.ToString() + " is game running" + isGameRunning);
             //if (isGameRunning)
             //    player1Health.value -= 1;
             if (player1Health <= 0 && isGameRunning)
@@ -78,10 +79,8 @@ namespace Managers
 
         private void NewRound()
         {
-            int player1Health = player1.GetComponent<Health>().currentHealth;
-            int player2Health = player1.GetComponent<Health>().currentHealth;
-            player1Health = 100;
-            player2Health = 100;
+            player1.GetComponent<Health>().currentHealth = 100;
+            player2.GetComponent<Health>().currentHealth = 100;
             if (roundNb < maxRound)
             {
                 isGameRunning = false;

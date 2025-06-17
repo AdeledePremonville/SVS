@@ -230,6 +230,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7618090953868263997, guid: b28af09cdf77b35458f5630906012bab, type: 3}
+      propertyPath: kickHitboxTrigger
+      value: 
+      objectReference: {fileID: 7111606116845413071}
+    - target: {fileID: 7618090953868263997, guid: b28af09cdf77b35458f5630906012bab, type: 3}
+      propertyPath: punchHitboxTrigger
+      value: 
+      objectReference: {fileID: 8055906600654593685}
     - target: {fileID: 8730673650055023342, guid: b28af09cdf77b35458f5630906012bab, type: 3}
       propertyPath: m_Name
       value: MariaPlayer2
