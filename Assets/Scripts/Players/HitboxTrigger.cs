@@ -10,7 +10,7 @@ public class HitboxTrigger : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (!canDealDamage) return;
-
+        
         IDamageable target = other.GetComponentInParent<IDamageable>();
         
         if (target != null)
