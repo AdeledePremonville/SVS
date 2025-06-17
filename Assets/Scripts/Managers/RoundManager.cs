@@ -39,7 +39,7 @@ namespace Managers
             int player1Health = player1.GetComponent<Health>().currentHealth;
             int player2Health = player2.GetComponent<Health>().currentHealth;
 
-            Debug.Log("player 2 helath " + player2Health.ToString() + " is game running" + isGameRunning);
+            // Debug.Log("player 2 health " + player2Health.ToString() + " is game running " + isGameRunning);
             //if (isGameRunning)
             //    player1Health.value -= 1;
             if (player1Health <= 0 && isGameRunning)

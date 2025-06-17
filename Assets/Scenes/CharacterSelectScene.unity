@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 292142958}
   - component: {fileID: 292142957}
   m_Layer: 5
-  m_Name: RobototronPlayer
+  m_Name: Hector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -847,7 +847,7 @@ GameObject:
   - component: {fileID: 1505214833}
   - component: {fileID: 1505214832}
   m_Layer: 5
-  m_Name: Robototron2Player
+  m_Name: Victor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
