@@ -461,8 +461,8 @@ MonoBehaviour:
   - {fileID: 5681830468714560567}
   - {fileID: 141029019717076072}
   playerPrefabs:
-  - {fileID: 5157505645420224376, guid: ba247c51c0081264c8b746ae9713bb2c, type: 3}
-  - {fileID: 2688127636186690718, guid: 356a8ebee51f5494d8c3d9d31f5cc57b, type: 3}
+  - {fileID: 10524377509076930, guid: 144921fd0d13e6c4c906967ffe1cfa01, type: 3}
+  - {fileID: 6848539059127458400, guid: 935b5e639778ed04d882c9a43d875135, type: 3}
   roundManager: {fileID: 5335943983222040635}
 --- !u!1 &2064663387530362586
 GameObject:
